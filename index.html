@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextPulse IT Solutions — Innovate. Empower. Transform.</title>
+<meta name="description" content="NextPulse IT Solutions — Your end-to-end technology partner for IT hardware, cloud, cybersecurity, networking, and managed IT services.">
+<meta name="keywords" content="IT services, managed IT, cloud solutions, cybersecurity, IT support, hardware, networking">
+<meta property="og:title" content="NextPulse IT Solutions">
+<meta property="og:description" content="Innovate. Empower. Transform. Your complete IT partner.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%230B1D6E'/><stop offset='100%25' stop-color='%231B90F5'/></linearGradient></defs><rect width='64' height='64' rx='12' fill='url(%23g)'/><text x='32' y='44' font-family='Arial Black' font-size='32' font-weight='900' text-anchor='middle' fill='white'>N</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D6E;
+    --blue: #1B90F5;
+    --blue-mid: #1565D8;
+    --blue-light: #E8F2FE;
+    --blue-lighter: #F0F7FF;
+    --accent: #00C4FF;
+    --text: #0B1D6E;
+    --text-mid: #3A4A7A;
+    --text-muted: #6B7BAB;
+    --border: #D5E3F8;
+    --white: #FFFFFF;
+    --bg: #F7FAFF;
+    --card-bg: #FFFFFF;
+    --shadow-sm: 0 2px 12px rgba(11,29,110,0.06);
+    --shadow-md: 0 8px 32px rgba(11,29,110,0.10);
+    --shadow-lg: 0 20px 60px rgba(11,29,110,0.14);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: var(--shadow-md); }
+
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .logo-icon svg { width: 28px; height: 28px; }
+  .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .logo-name {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800; font-size: 18px; letter-spacing: 0.5px;
+    display: flex; gap: 1px;
+  }
+  .logo-name .next { color: var(--navy); }
+  .logo-name .pulse { color: var(--blue); }
+  .logo-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 9px; font-weight: 600; letter-spacing: 2.5px;
+    color: var(--text-muted); text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 32px; list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px; font-weight: 500; color: var(--text-mid);
+    text-decoration: none; position: relative; transition: color 0.2s;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+    height: 2px; background: var(--blue); border-radius: 2px;
+    transform: scaleX(0); transition: transform 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue-mid) 100%);
+    color: white; font-weight: 600; font-size: 14px;
+    padding: 10px 22px; border-radius: 8px; border: none;
+    cursor: pointer; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(27,144,245,0.3);
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(27,144,245,0.4); }
+
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 4px;
+  }
+  .hamburger span {
+    width: 24px; height: 2px; background: var(--navy);
+    border-radius: 2px; transition: all 0.3s;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding: 120px 5% 80px;
+    background: linear-gradient(160deg, #F0F7FF 0%, #FFFFFF 50%, #F0F6FF 100%);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(27,144,245,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(27,144,245,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+  .hero-blob {
+    position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15;
+    animation: float 8s ease-in-out infinite;
+  }
+  .hero-blob-1 {
+    width: 600px; height: 600px;
+    background: var(--blue);
+    top: -100px; right: -100px;
+  }
+  .hero-blob-2 {
+    width: 400px; height: 400px;
+    background: var(--navy);
+    bottom: -100px; left: 10%;
+    animation-delay: -4s;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.03); }
+  }
+
+  .hero-inner {
+    position: relative; z-index: 1;
+    max-width: 1200px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--blue-light); border: 1px solid var(--border);
+    padding: 6px 14px; border-radius: 100px; margin-bottom: 24px;
+    font-size: 12px; font-weight: 600; color: var(--blue);
+    letter-spacing: 0.05em;
+  }
+  .hero-badge .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--blue);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero h1 {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900; font-size: clamp(36px, 4.5vw, 58px);
+    line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.5px;
+  }
+  .hero h1 .line1 { color: var(--navy); display: block; }
+  .hero h1 .typewriter { color: var(--blue); display: block; }
+
+  .hero-desc {
+    font-size: 17px; color: var(--text-mid); margin-bottom: 36px;
+    line-height: 1.7; max-width: 480px; font-weight: 300;
+  }
+
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue-mid) 100%);
+    color: white; font-weight: 600; font-size: 15px;
+    padding: 14px 28px; border-radius: 10px; border: none;
+    cursor: pointer; text-decoration: none; display: inline-flex;
+    align-items: center; gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 6px 24px rgba(27,144,245,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(27,144,245,0.45); }
+
+  .btn-outline {
+    background: white; color: var(--navy); font-weight: 600; font-size: 15px;
+    padding: 13px 28px; border-radius: 10px;
+    border: 1.5px solid var(--border); cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+
+  .hero-metrics {
+    display: flex; gap: 28px; flex-wrap: wrap;
+  }
+  .metric {
+    display: flex; flex-direction: column;
+  }
+  .metric-val {
+    font-family: 'Barlow', sans-serif;
+    font-size: 28px; font-weight: 800; color: var(--navy);
+    line-height: 1;
+  }
+  .metric-val span { color: var(--blue); }
+  .metric-label { font-size: 12px; color: var(--text-muted); font-weight: 500; margin-top: 2px; }
+  .metric-divider { width: 1px; background: var(--border); align-self: stretch; }
+
+  /* hero right visual */
+  .hero-visual {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    position: relative;
+  }
+  .hero-visual-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 16px; padding: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: card-float 6s ease-in-out infinite;
+  }
+  .hero-visual-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .hero-visual-card:nth-child(2) { animation-delay: -1.5s; margin-top: 24px; }
+  .hero-visual-card:nth-child(3) { animation-delay: -3s; margin-top: -24px; }
+  .hero-visual-card:nth-child(4) { animation-delay: -4.5s; }
+  @keyframes card-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .hero-visual-card:hover { animation-play-state: paused; }
+
+  .vc-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 12px; font-size: 20px;
+  }
+  .vc-title { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .vc-sub { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+  .vc-stat {
+    font-family: 'Barlow', sans-serif;
+    font-size: 22px; font-weight: 800; color: var(--blue); margin-top: 8px;
+  }
+
+  /* ── TRUST STRIP ── */
+  .trust {
+    padding: 28px 5%;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .trust-label {
+    text-align: center; font-size: 12px; font-weight: 600;
+    color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .trust-track {
+    display: flex; gap: 60px; align-items: center;
+    animation: scroll-x 20s linear infinite;
+    width: max-content;
+  }
+  @keyframes scroll-x {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .trust-brand {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800; font-size: 18px; letter-spacing: 1px;
+    color: var(--border); white-space: nowrap;
+    transition: color 0.2s;
+  }
+  .trust-brand:hover { color: var(--text-muted); }
+
+  /* ── SECTIONS ── */
+  section { padding: 96px 5%; }
+
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--blue);
+    margin-bottom: 12px; display: block;
+  }
+  .section-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 800; color: var(--navy);
+    line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.3px;
+  }
+  .section-desc {
+    font-size: 17px; color: var(--text-muted); max-width: 560px;
+    line-height: 1.7; font-weight: 300;
+  }
+  .section-header { margin-bottom: 56px; }
+  .section-header.center { text-align: center; }
+  .section-header.center .section-desc { margin: 0 auto; }
+
+  /* ── SERVICES ── */
+  .services { background: var(--bg); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .service-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 20px; padding: 32px;
+    cursor: pointer; position: relative; overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .service-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+  .service-card:hover::before { opacity: 1; }
+  .service-card:hover .sc-icon, .service-card:hover .sc-title,
+  .service-card:hover .sc-desc, .service-card:hover .sc-list li,
+  .service-card:hover .sc-arrow { color: white; }
+  .service-card:hover .sc-icon { background: rgba(255,255,255,0.15); }
+  .service-card:hover .sc-list li::before { background: rgba(255,255,255,0.5); }
+
+  .sc-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
+  .sc-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: var(--blue-light); display: flex; align-items: center;
+    justify-content: center; font-size: 24px;
+    transition: all 0.3s; position: relative; z-index: 1;
+  }
+  .sc-arrow {
+    font-size: 20px; color: var(--text-muted); position: relative; z-index: 1;
+    transition: all 0.3s; transform: rotate(-45deg);
+  }
+  .service-card:hover .sc-arrow { transform: rotate(0deg); }
+  .sc-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px; font-weight: 700; color: var(--navy);
+    margin-bottom: 10px; position: relative; z-index: 1; transition: color 0.3s;
+  }
+  .sc-desc {
+    font-size: 13.5px; color: var(--text-muted); line-height: 1.6;
+    margin-bottom: 16px; position: relative; z-index: 1; transition: color 0.3s;
+  }
+  .sc-list { list-style: none; position: relative; z-index: 1; }
+  .sc-list li {
+    font-size: 13px; color: var(--text-mid); padding: 4px 0 4px 16px;
+    position: relative; transition: color 0.3s;
+  }
+  .sc-list li::before {
+    content: ''; position: absolute; left: 0; top: 50%;
+    transform: translateY(-50%); width: 5px; height: 5px;
+    border-radius: 50%; background: var(--blue); transition: background 0.3s;
+  }
+
+  /* ── FEATURES / WHY US ── */
+  .why { background: white; }
+  .why-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .why-visual {
+    position: relative; border-radius: 24px; overflow: hidden;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    padding: 48px 40px; min-height: 480px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .why-visual-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .why-big-stat {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 100px; font-weight: 800; color: rgba(255,255,255,0.12);
+    line-height: 1; position: absolute; top: 20px; right: 20px;
+    letter-spacing: -4px;
+  }
+  .why-features-mini {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    position: relative; z-index: 1;
+  }
+  .wf-mini {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px; padding: 16px;
+  }
+  .wf-mini-val {
+    font-family: 'Barlow', sans-serif;
+    font-size: 28px; font-weight: 800; color: white; line-height: 1;
+  }
+  .wf-mini-label { font-size: 11px; color: rgba(255,255,255,0.65); margin-top: 4px; }
+
+  .why-points { display: flex; flex-direction: column; gap: 28px; }
+  .why-point {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 24px; border-radius: 16px; border: 1px solid transparent;
+    transition: all 0.3s; cursor: default;
+  }
+  .why-point:hover { background: var(--blue-lighter); border-color: var(--border); }
+  .wp-icon {
+    width: 48px; height: 48px; flex-shrink: 0; border-radius: 12px;
+    background: var(--blue-light); display: flex; align-items: center;
+    justify-content: center; font-size: 22px; transition: all 0.3s;
+  }
+  .why-point:hover .wp-icon {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    transform: scale(1.05);
+  }
+  .wp-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .wp-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── STATS ── */
+  .stats {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue-mid) 100%);
+    padding: 80px 5%;
+    position: relative; overflow: hidden;
+  }
+  .stats::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  .stats-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+    position: relative; z-index: 1;
+  }
+  .stat-item { text-align: center; }
+  .stat-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 58px; font-weight: 800; color: white; line-height: 1;
+    display: flex; align-items: flex-end; justify-content: center; gap: 2px;
+  }
+  .stat-suffix { font-size: 36px; color: rgba(255,255,255,0.7); margin-bottom: 4px; }
+  .stat-label { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 8px; font-weight: 500; letter-spacing: 0.5px; }
+  .stat-divider {
+    width: 1px; height: 80px; background: rgba(255,255,255,0.15);
+    align-self: center; justify-self: center;
+  }
+
+  /* ── PROCESS ── */
+  .process { background: var(--bg); }
+  .process-steps {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    position: relative;
+  }
+  .process-steps::before {
+    content: ''; position: absolute;
+    top: 32px; left: 12.5%; right: 12.5%;
+    height: 2px; background: var(--border);
+  }
+  .process-step { text-align: center; position: relative; }
+  .ps-num {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: white; border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 22px; font-weight: 800; color: var(--navy);
+    position: relative; z-index: 1; transition: all 0.3s;
+  }
+  .process-step:hover .ps-num {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: white; border-color: transparent;
+    box-shadow: 0 8px 24px rgba(27,144,245,0.35);
+  }
+  .ps-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .ps-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: white; }
+  .testi-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .testi-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 20px; padding: 28px;
+    transition: all 0.3s;
+  }
+  .testi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); background: white; }
+  .testi-stars { color: #F5A623; font-size: 14px; letter-spacing: 1px; margin-bottom: 16px; }
+  .testi-quote {
+    font-size: 14.5px; color: var(--text-mid); line-height: 1.7;
+    margin-bottom: 20px; font-style: italic;
+  }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 15px; color: white;
+    flex-shrink: 0;
+  }
+  .testi-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+  .testi-role { font-size: 12px; color: var(--text-muted); }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 80px 5%;
+    background: var(--bg); text-align: center;
+  }
+  .cta-box {
+    max-width: 800px; margin: 0 auto;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue-mid) 100%);
+    border-radius: 28px; padding: 64px 48px;
+    position: relative; overflow: hidden;
+  }
+  .cta-box::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .cta-box h2 {
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(28px, 4vw, 42px); font-weight: 800;
+    color: white; margin-bottom: 16px; position: relative; z-index: 1;
+  }
+  .cta-box p {
+    font-size: 16px; color: rgba(255,255,255,0.75);
+    margin-bottom: 36px; position: relative; z-index: 1; line-height: 1.7;
+  }
+  .cta-btns {
+    display: flex; gap: 14px; justify-content: center;
+    flex-wrap: wrap; position: relative; z-index: 1;
+  }
+  .btn-white {
+    background: white; color: var(--navy); font-weight: 700; font-size: 15px;
+    padding: 14px 28px; border-radius: 10px; border: none;
+    cursor: pointer; text-decoration: none; display: inline-flex;
+    align-items: center; gap: 8px; transition: all 0.2s;
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+  .btn-ghost {
+    background: transparent; color: white; font-weight: 600; font-size: 15px;
+    padding: 13px 28px; border-radius: 10px;
+    border: 1.5px solid rgba(255,255,255,0.35); cursor: pointer;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); padding: 64px 5% 32px; color: rgba(255,255,255,0.65);
+  }
+  .footer-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px;
+    padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 32px;
+  }
+  .footer-brand .logo-name .next { color: white; }
+  .footer-brand .logo-name .pulse { color: var(--accent); }
+  .footer-brand .logo-sub { color: rgba(255,255,255,0.4); }
+  .footer-tagline {
+    font-size: 13px; margin-top: 16px; margin-bottom: 24px; line-height: 1.6;
+    max-width: 260px;
+  }
+  .footer-socials { display: flex; gap: 12px; }
+  .social-btn {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; cursor: pointer; transition: all 0.2s; text-decoration: none;
+    color: rgba(255,255,255,0.65);
+  }
+  .social-btn:hover { background: var(--blue); border-color: var(--blue); color: white; transform: translateY(-2px); }
+
+  .footer-col h4 {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px; font-weight: 700; color: white;
+    letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a {
+    font-size: 13.5px; color: rgba(255,255,255,0.55); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: white; }
+
+  .footer-contact-item {
+    display: flex; gap: 10px; align-items: flex-start; margin-bottom: 14px;
+  }
+  .fci-icon { font-size: 14px; margin-top: 2px; flex-shrink: 0; }
+  .fci-text { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+  .fci-text a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .fci-text a:hover { color: white; }
+
+  .footer-bottom {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .footer-bottom-text { font-size: 12.5px; }
+  .footer-bottom-links { display: flex; gap: 20px; }
+  .footer-bottom-links a {
+    font-size: 12.5px; color: rgba(255,255,255,0.4); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-bottom-links a:hover { color: white; }
+
+  /* ── WHATSAPP FLOAT ── */
+  .whatsapp-float {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25D366; box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.3s;
+    animation: wa-pulse 3s ease-in-out infinite;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+  @keyframes wa-pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 10px rgba(37,211,102,0.1); }
+  }
+  .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+
+  /* ── ANIMATIONS ── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+
+  /* ── TYPEWRITER ── */
+  .typewriter-text { border-right: 3px solid var(--blue); animation: blink 0.7s step-end infinite; }
+  @keyframes blink { 0%, 100% { border-color: var(--blue); } 50% { border-color: transparent; } }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-visual { display: none; }
+    .why-inner { grid-template-columns: 1fr; gap: 48px; }
+    .why-visual { min-height: 300px; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .testi-grid { grid-template-columns: 1fr 1fr; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .process-steps::before { display: none; }
+  }
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .hero { padding: 100px 5% 60px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .stats-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero-metrics { gap: 20px; }
+    .metric-divider { display: none; }
+    .cta-box { padding: 40px 24px; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .stats-inner { grid-template-columns: 1fr 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-outline { justify-content: center; }
+  }
+
+  /* Mobile nav */
+  .mobile-menu {
+    position: fixed; inset: 0; z-index: 999;
+    background: white; padding: 80px 5% 40px;
+    display: flex; flex-direction: column; gap: 24px;
+    transform: translateX(100%); transition: transform 0.3s;
+  }
+  .mobile-menu.open { transform: translateX(0); }
+  .mobile-menu a {
+    font-size: 22px; font-weight: 700; color: var(--navy);
+    text-decoration: none; border-bottom: 1px solid var(--border);
+    padding-bottom: 16px; font-family: 'Barlow', sans-serif;
+  }
+  .mobile-close {
+    position: absolute; top: 20px; right: 5%;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--bg); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 18px; color: var(--navy);
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 22V6L14 20V6" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16 6h6a3 3 0 0 1 0 8h-6" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="19" y="12" width="3" height="3" rx="0.5" fill="rgba(255,255,255,0.5)"/>
+        <rect x="23" y="9" width="2" height="2" rx="0.5" fill="rgba(255,255,255,0.35)"/>
+        <rect x="23" y="13" width="2" height="2" rx="0.5" fill="rgba(255,255,255,0.2)"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <div class="logo-name"><span class="next">NEXT</span><span class="pulse">PULSE</span></div>
+      <div class="logo-sub">IT Solutions</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:info@nextpulseit.com" class="nav-cta">Get Free Quote</a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-close" onclick="toggleMenu()">✕</div>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#why" onclick="toggleMenu()">Why Us</a>
+  <a href="#process" onclick="toggleMenu()">How It Works</a>
+  <a href="#testimonials" onclick="toggleMenu()">Clients</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="mailto:info@nextpulseit.com" class="nav-cta" style="text-align:center;color:white;border:none;padding:14px;border-radius:10px">Get Free Quote →</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="dot"></div>
+        Trusted IT Partner — 500+ Businesses Served
+      </div>
+      <h1>
+        <span class="line1">Your Business,</span>
+        <span class="typewriter" id="typewriter"></span>
+      </h1>
+      <p class="hero-desc">
+        From hardware procurement to cloud migration, cybersecurity to custom software — NextPulse IT Solutions is your end-to-end technology partner that <strong>Innovates, Empowers, and Transforms.</strong>
+      </p>
+      <div class="hero-btns">
+        <a href="#services" class="btn-primary">Explore Services →</a>
+        <a href="tel:+919226778328" class="btn-outline">📞 Schedule Consultation</a>
+      </div>
+      <div class="hero-metrics">
+        <div class="metric">
+          <div class="metric-val"><span id="m1">0</span>+</div>
+          <div class="metric-label">Happy Clients</div>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric">
+          <div class="metric-val"><span id="m2">0</span>+</div>
+          <div class="metric-label">Years Experience</div>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric">
+          <div class="metric-val">24<span style="color:var(--blue)">/7</span></div>
+          <div class="metric-label">IT Support</div>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric">
+          <div class="metric-val"><span id="m3">0</span>%</div>
+          <div class="metric-label">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-card">
+        <div class="vc-icon" style="background:#E8F2FE">🖥️</div>
+        <div class="vc-title">IT Hardware</div>
+        <div class="vc-sub">Laptops, Servers & More</div>
+        <div class="vc-stat">500+</div>
+      </div>
+      <div class="hero-visual-card">
+        <div class="vc-icon" style="background:#E8FEF0">☁️</div>
+        <div class="vc-title">Cloud Ready</div>
+        <div class="vc-sub">M365 · Google Workspace</div>
+        <div class="vc-stat">99.9%</div>
+      </div>
+      <div class="hero-visual-card">
+        <div class="vc-icon" style="background:#FEF3E8">🔒</div>
+        <div class="vc-title">Cybersecurity</div>
+        <div class="vc-sub">Endpoint · Firewall</div>
+        <div class="vc-stat">Zero</div>
+      </div>
+      <div class="hero-visual-card">
+        <div class="vc-icon" style="background:#F3E8FE">📡</div>
+        <div class="vc-title">Networking</div>
+        <div class="vc-sub">LAN · WAN · WiFi</div>
+        <div class="vc-stat">1Gbps</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST ── -->
+<div class="trust">
+  <div class="trust-label">Trusted by leading brands we stock & support</div>
+  <div style="overflow:hidden">
+    <div class="trust-track" id="trustTrack">
+      <span class="trust-brand">DELL</span>
+      <span class="trust-brand">HP</span>
+      <span class="trust-brand">LENOVO</span>
+      <span class="trust-brand">CISCO</span>
+      <span class="trust-brand">MICROSOFT</span>
+      <span class="trust-brand">FORTINET</span>
+      <span class="trust-brand">SOPHOS</span>
+      <span class="trust-brand">GOOGLE</span>
+      <span class="trust-brand">ACER</span>
+      <span class="trust-brand">ASUS</span>
+      <span class="trust-brand">DELL</span>
+      <span class="trust-brand">HP</span>
+      <span class="trust-brand">LENOVO</span>
+      <span class="trust-brand">CISCO</span>
+      <span class="trust-brand">MICROSOFT</span>
+      <span class="trust-brand">FORTINET</span>
+      <span class="trust-brand">SOPHOS</span>
+      <span class="trust-brand">GOOGLE</span>
+      <span class="trust-brand">ACER</span>
+      <span class="trust-brand">ASUS</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── SERVICES ── -->
+<section class="services" id="services">
+  <div class="section-header center reveal">
+    <span class="section-label">What We Do</span>
+    <h2 class="section-title">Complete IT Services Under One Roof</h2>
+    <p class="section-desc">From day-to-day IT support to enterprise cloud transformation — we handle it all so you can focus on your business.</p>
+  </div>
+  <div class="services-grid" style="max-width:1200px;margin:0 auto">
+    <div class="service-card reveal reveal-delay-1">
+      <div class="sc-top">
+        <div class="sc-icon">🖥️</div>
+        <span class="sc-arrow">↗</span>
+      </div>
+      <div class="sc-title">Core IT Services</div>
+      <div class="sc-desc">Complete hardware procurement, infrastructure setup, and ongoing IT support.</div>
+      <ul class="sc-list">
+        <li>Laptops, Desktops, Servers & Accessories</li>
+        <li>LAN/WAN Network Infrastructure Setup</li>
+        <li>Annual Maintenance Contracts (AMC)</li>
+        <li>Remote + On-site Helpdesk Support</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="sc-top">
+        <div class="sc-icon">🔒</div>
+        <span class="sc-arrow">↗</span>
+      </div>
+      <div class="sc-title">Networking & Security</div>
+      <div class="sc-desc">Enterprise-grade network infrastructure and multi-layered cybersecurity.</div>
+      <ul class="sc-list">
+        <li>Routers, Switches & Firewall Setup</li>
+        <li>Endpoint Security & Antivirus</li>
+        <li>CCTV, Biometrics & Access Control</li>
+        <li>Cloud + Local Data Backup & Recovery</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="sc-top">
+        <div class="sc-icon">☁️</div>
+        <span class="sc-arrow">↗</span>
+      </div>
+      <div class="sc-title">Cloud & Modern IT</div>
+      <div class="sc-desc">Future-ready cloud migration, collaboration platforms, and virtualization.</div>
+      <ul class="sc-list">
+        <li>Microsoft 365 & Google Workspace</li>
+        <li>Cloud Server Migration</li>
+        <li>Email & Domain Hosting</li>
+        <li>VMware / Hyper-V Virtualization</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="sc-top">
+        <div class="sc-icon">💼</div>
+        <span class="sc-arrow">↗</span>
+      </div>
+      <div class="sc-title">Business Solutions</div>
+      <div class="sc-desc">Smart B2B technology solutions to streamline operations and boost productivity.</div>
+      <ul class="sc-list">
+        <li>POS (Point of Sale) Systems</li>
+        <li>Biometric Attendance Systems</li>
+        <li>ERP & CRM Implementation</li>
+        <li>Custom Software Development</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="sc-top">
+        <div class="sc-icon">💻</div>
+        <span class="sc-arrow">↗</span>
+      </div>
+      <div class="sc-title">Software & Digital</div>
+      <div class="sc-desc">Digital solutions to establish and grow your online presence.</div>
+      <ul class="sc-list">
+        <li>Website Design & Development</li>
+        <li>Custom Software Solutions</li>
+        <li>Software Installation & Licensing</li>
+        <li>Digital Transformation Consulting</li>
+      </ul>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="sc-top">
+        <div class="sc-icon">🏗️</div>
+        <span class="sc-arrow">↗</span>
+      </div>
+      <div class="sc-title">Advanced / MSP Services</div>
+      <div class="sc-desc">Enterprise IT consulting, data center setup, and managed IT services.</div>
+      <ul class="sc-list">
+        <li>IT Consulting & Infrastructure Audits</li>
+        <li>Data Center Setup & Management</li>
+        <li>Disaster Recovery Planning</li>
+        <li>Remote IT Management (MSP)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-number"><span class="counter" data-target="500">0</span><span class="stat-suffix">+</span></div>
+      <div class="stat-label">Happy Clients</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-number"><span class="counter" data-target="10">0</span><span class="stat-suffix">+</span></div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-number"><span class="counter" data-target="98">0</span><span class="stat-suffix">%</span></div>
+      <div class="stat-label">Client Satisfaction</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-number">24<span class="stat-suffix">/7</span></div>
+      <div class="stat-label">IT Support Available</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WHY US ── -->
+<section class="why" id="why">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="why-inner">
+      <div class="why-visual reveal">
+        <div class="why-visual-grid"></div>
+        <div class="why-big-stat">NP</div>
+        <div class="why-features-mini">
+          <div class="wf-mini">
+            <div class="wf-mini-val">500+</div>
+            <div class="wf-mini-label">Businesses Served</div>
+          </div>
+          <div class="wf-mini">
+            <div class="wf-mini-val">24/7</div>
+            <div class="wf-mini-label">Support Coverage</div>
+          </div>
+          <div class="wf-mini">
+            <div class="wf-mini-val">99%</div>
+            <div class="wf-mini-label">Uptime Guarantee</div>
+          </div>
+          <div class="wf-mini">
+            <div class="wf-mini-val">1hr</div>
+            <div class="wf-mini-label">Avg Response Time</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-header reveal">
+          <span class="section-label">Why NextPulse IT</span>
+          <h2 class="section-title">The IT Partner Your Business Actually Needs</h2>
+          <p class="section-desc">We combine technical expertise with business understanding to deliver IT solutions that genuinely drive results.</p>
+        </div>
+        <div class="why-points">
+          <div class="why-point reveal reveal-delay-1">
+            <div class="wp-icon">🎯</div>
+            <div>
+              <div class="wp-title">Certified & Experienced Team</div>
+              <div class="wp-desc">Our engineers hold certifications from Microsoft, Cisco, CompTIA and more — bringing enterprise-grade expertise to businesses of all sizes.</div>
+            </div>
+          </div>
+          <div class="why-point reveal reveal-delay-2">
+            <div class="wp-icon">⚡</div>
+            <div>
+              <div class="wp-title">Fast Response, Zero Downtime</div>
+              <div class="wp-desc">Average 1-hour response time with remote and on-site support. We treat your downtime as our emergency.</div>
+            </div>
+          </div>
+          <div class="why-point reveal reveal-delay-3">
+            <div class="wp-icon">💰</div>
+            <div>
+              <div class="wp-title">Transparent & Affordable Pricing</div>
+              <div class="wp-desc">No hidden charges. Fixed AMC contracts, clear project quotations, and flexible payment options designed for Indian SMEs.</div>
+            </div>
+          </div>
+          <div class="why-point reveal reveal-delay-4">
+            <div class="wp-icon">🏢</div>
+            <div>
+              <div class="wp-title">One-Stop IT Shop</div>
+              <div class="wp-desc">From buying a laptop to setting up a data center — everything under one roof means no juggling multiple vendors.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process" id="process">
+  <div class="section-header center reveal" style="max-width:1200px;margin:0 auto 56px">
+    <span class="section-label">How It Works</span>
+    <h2 class="section-title">Up and Running in 4 Simple Steps</h2>
+    <p class="section-desc">From first call to full deployment — our streamlined process gets you sorted fast.</p>
+  </div>
+  <div class="process-steps">
+    <div class="process-step reveal reveal-delay-1">
+      <div class="ps-num">01</div>
+      <div class="ps-title">Free Consultation</div>
+      <div class="ps-desc">Tell us your IT challenges. We assess your infrastructure and understand your business needs — no jargon, no pressure.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="ps-num">02</div>
+      <div class="ps-title">Custom Proposal</div>
+      <div class="ps-desc">We design a tailored IT solution with transparent pricing. You get a clear roadmap before any commitment.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="ps-num">03</div>
+      <div class="ps-title">Implementation</div>
+      <div class="ps-desc">Our certified engineers deploy with minimal disruption. Hardware, software, network, cloud — handled end-to-end.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-4">
+      <div class="ps-num">04</div>
+      <div class="ps-title">Ongoing Support</div>
+      <div class="ps-desc">24/7 helpdesk, proactive monitoring, and AMC coverage keep your business running at peak performance.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials" id="testimonials">
+  <div class="section-header center reveal" style="max-width:1200px;margin:0 auto 56px">
+    <span class="section-label">Client Stories</span>
+    <h2 class="section-title">Trusted by Businesses Across Industries</h2>
+    <p class="section-desc">Don't take our word for it — here's what our clients say.</p>
+  </div>
+  <div class="testi-grid" style="max-width:1200px;margin:0 auto">
+    <div class="testi-card reveal reveal-delay-1">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">"NextPulse IT completely overhauled our office network and set up Microsoft 365 seamlessly. The team was professional, fast, and available 24/7 during the transition. Highly recommended!"</div>
+      <div class="testi-author">
+        <div class="testi-avatar">RS</div>
+        <div>
+          <div class="testi-name">Rahul Sharma</div>
+          <div class="testi-role">Director, TechBridge Pvt Ltd</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal reveal-delay-2">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">"We signed an AMC with NextPulse IT and our IT downtime has dropped to near zero. They respond within an hour, every time. It's like having an in-house IT team at a fraction of the cost."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">PM</div>
+        <div>
+          <div class="testi-name">Priya Mehta</div>
+          <div class="testi-role">CEO, Meridian Enterprises</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal reveal-delay-3">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">"From CCTV installation to setting up our entire server room — NextPulse IT handled everything professionally. Their pricing is transparent and their team knows their stuff inside out."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">AK</div>
+        <div>
+          <div class="testi-name">Arjun Kapoor</div>
+          <div class="testi-role">Operations Head, RetailMax</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section" id="contact">
+  <div class="cta-box reveal">
+    <h2>Ready to Transform Your IT Infrastructure?</h2>
+    <p>Get a free consultation and custom quote from our certified IT experts. No obligation, no pressure — just smart IT advice for your business.</p>
+    <div class="cta-btns">
+      <a href="mailto:info@nextpulseit.com" class="btn-white">📧 Get Free Quote</a>
+      <a href="tel:+919226778328" class="btn-ghost">📞 Call Us Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 22V6L14 20V6" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 6h6a3 3 0 0 1 0 8h-6" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="logo-name"><span class="next">NEXT</span><span class="pulse">PULSE</span></div>
+          <div class="logo-sub">IT Solutions</div>
+        </div>
+      </div>
+      <p class="footer-tagline">Innovate. Empower. Transform.<br>Your trusted end-to-end technology partner for businesses of all sizes.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">𝕏</a>
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">▶</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul class="footer-links">
+        <li><a href="#services">Core IT Services</a></li>
+        <li><a href="#services">Networking & Security</a></li>
+        <li><a href="#services">Cloud & Modern IT</a></li>
+        <li><a href="#services">Business Solutions</a></li>
+        <li><a href="#services">Software & Digital</a></li>
+        <li><a href="#services">MSP / Advanced IT</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul class="footer-links">
+        <li><a href="#why">About Us</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#testimonials">Client Stories</a></li>
+        <li><a href="#">Blog & Resources</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item">
+        <span class="fci-icon">📧</span>
+        <div class="fci-text"><a href="mailto:info@nextpulseit.com">info@nextpulseit.com</a></div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fci-icon">🌐</span>
+        <div class="fci-text"><a href="https://nextpulseit.com">nextpulseit.com</a></div>
+      </div>
+      <div class="footer-contact-item">
+        <span class="fci-icon">🕐</span>
+        <div class="fci-text">Mon–Sat: 9:00 AM – 7:00 PM<br>Emergency: 24/7</div>
+      </div>
+      <a href="mailto:info@nextpulseit.com" class="btn-primary" style="margin-top:16px;font-size:13px;padding:10px 18px;display:inline-flex">Get Free Quote →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-text">© 2025 NextPulse IT Solutions. All rights reserved.</div>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WHATSAPP ── -->
+<a href="https://wa.me/919226778328" class="whatsapp-float" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+// Navbar scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', scrollY > 60);
+});
+
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// Typewriter
+const words = ['Powered by IT.', 'Secured by Us.', 'Moved to Cloud.', 'Transformed Now.'];
+let wi = 0, ci = 0, deleting = false;
+const el = document.getElementById('typewriter');
+function type() {
+  const word = words[wi];
+  if (!deleting) {
+    el.textContent = word.slice(0, ++ci);
+    el.className = 'typewriter typewriter-text';
+    if (ci === word.length) { deleting = true; setTimeout(type, 2000); return; }
+  } else {
+    el.textContent = word.slice(0, --ci);
+    if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; el.className = 'typewriter'; }
+  }
+  setTimeout(type, deleting ? 60 : 90);
+}
+setTimeout(type, 800);
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Counter animation
+function animateCounter(el, target, duration = 1800) {
+  let start = 0, startTime = null;
+  function step(ts) {
+    if (!startTime) startTime = ts;
+    const progress = Math.min((ts - startTime) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(ease * target);
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const target = parseInt(e.target.dataset.target);
+      animateCounter(e.target, target);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+// Hero metric counters
+setTimeout(() => {
+  animateCounter(document.getElementById('m1'), 500, 2000);
+  animateCounter(document.getElementById('m2'), 10, 2000);
+  animateCounter(document.getElementById('m3'), 98, 2000);
+}, 400);
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>
